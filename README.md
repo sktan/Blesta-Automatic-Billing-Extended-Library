@@ -1,4 +1,4 @@
-# Blesta-Automatic-Billing-Extended-Library
+# Blesta's Automatic Billing Extended Library
 A library to integrate your Blesta non-merchant gateway with the automatic billing extended plugin
 
 ## Introduction
