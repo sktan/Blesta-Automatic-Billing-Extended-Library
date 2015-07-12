@@ -17,7 +17,7 @@ class ExamplePayment extends NonmerchantGateway {
         Loader::load(dirname(__FILE__) . DS . "libs" . DS . "automatic_billing_extended_lib.php");
         // We will be using the class-name as our identifier for this class
         $automatic_billing_extended = new AutomaticBillingExtendedLibrary(__CLASS__);
-        rteturn $automatic_billing_extended;
+        return $automatic_billing_extended;
     }
 }
 ```
