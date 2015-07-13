@@ -137,6 +137,8 @@ class AutomaticBillingExtendedLibrary {
 	
 	/**
 	 * Removes the customers billing method from our table
+	 *
+	 * @param int $blesta_customer_id The customer ID given by Blesta
 	 */
 	public function removeBillingMethod($blesta_customer_id) {
 		if($this->billingMethodExists($blesta_customer_id)) {
@@ -148,6 +150,23 @@ class AutomaticBillingExtendedLibrary {
 		// If a billing method does not exist for the given Blesta customer ID, we will throw an error
 		else {
 			Throw new Exception("Billing method does not exist for given customer");
+		}
+	}
+	
+	/**
+	 * Retrieves the billing information of a customer by their Blesta Customer ID
+	 *
+	 * @param int $blesta_customer_id The customer ID given by Blesta
+	 */
+	public function getBillingMethod($blesta_customer_id) {
+		if($this->billingMethodExists($blesta_customer_id)) {
+			$token_details = $this->Record->select()->from($this->database_name)->
+				where('blesta_customer_id', '=', $blesta_customer_id)->
+				where('gateway_name', '=', $this->gateway_identifier)->fetch();
+		}
+		// Return null if the billing method doesn't exist for the given Blesta Customer ID
+		else {
+			return null;
 		}
 	}
 }
