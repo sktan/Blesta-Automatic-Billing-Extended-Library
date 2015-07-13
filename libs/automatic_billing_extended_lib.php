@@ -101,7 +101,7 @@ class AutomaticBillingExtendedLibrary {
 	public function modifyBillingMethod($blesta_customer_id, $new_payment_token, $new_gateway_customer_id) {
 		if($this->billingMethodExists($blesta_customer_id)) {
 			$this->Record->
-				where('blesta_customer_id', '=', $client_id)->
+				where('blesta_customer_id', '=', $blesta_customer_id)->
 				where('gateway_name', '=', $this->gateway_identifier)->
 				update($this->database_name, array(
 					'gateway_customer_id' => $new_gateway_customer_id,
@@ -123,7 +123,7 @@ class AutomaticBillingExtendedLibrary {
 	public function updateBillingMethodTime($blesta_customer_id) {
 		if($this->billingMethodExists($blesta_customer_id)) {
 			$this->Record->
-				where('blesta_customer_id', '=', $client_id)->
+				where('blesta_customer_id', '=', $blesta_customer_id)->
 				where('gateway_name', '=', $this->gateway_identifier)->
 				update($this->database_name, array(
 					'last_updated' => time(),
@@ -163,6 +163,7 @@ class AutomaticBillingExtendedLibrary {
 			$token_details = $this->Record->select()->from($this->database_name)->
 				where('blesta_customer_id', '=', $blesta_customer_id)->
 				where('gateway_name', '=', $this->gateway_identifier)->fetch();
+			return $token_details;
 		}
 		// Return null if the billing method doesn't exist for the given Blesta Customer ID
 		else {
