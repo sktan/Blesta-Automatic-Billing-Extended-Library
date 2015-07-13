@@ -48,7 +48,7 @@ class AutomaticBillingExtendedLibrary {
 	 */
 	public function checkPluginInstalled() {
 		try{
-			return $this->Record->select()->from($this->database_name)->numResults() !=== false;
+			return $this->Record->select()->from($this->database_name)->numResults() !== false;
 		}
 		catch (Exception $ex) {
 			return false;
@@ -168,5 +168,11 @@ class AutomaticBillingExtendedLibrary {
 		else {
 			return null;
 		}
+	}
+	
+	public function removeAllBillingMethods() {
+		$this->Record->from($this->database_name)->
+			where('gateway_name', '=', $this->gateway_identifier)->
+			delete();
 	}
 }
