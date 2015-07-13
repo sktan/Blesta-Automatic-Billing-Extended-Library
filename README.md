@@ -3,7 +3,7 @@ A library to integrate your Blesta non-merchant gateway with the automatic billi
 
 ## Introduction
 "Automatic Billing Extended" is a plugin that allows for Blesta non-merchant gateways to easily implement methods in order to support automatic-billing via tokens.
-Currently, blesta only supports automatic billing for merchant gateways (credit-card payments) which is why the Autoamtic Billing Extended plugin was built.
+Currently, blesta only supports automatic billing for merchant gateways (credit-card payments) which is why the Automatic Billing Extended plugin was built.
 Non-merchant gateawys should also have the ability to support automatic billing as most payment-processors (e.g. Paypal) does support reoccuring and future payments via the use of tokens.
 
 ## Including the Library
