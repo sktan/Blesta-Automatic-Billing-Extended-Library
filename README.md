@@ -25,6 +25,17 @@ class ExamplePayment extends NonmerchantGateway {
 ## Utilizing the Library ##
 To utilize the library, you can use the included functions in order to add / remove / modify / retrieve entries related to your customer.
 
+### Retrieving a customer's billing information ###
+```
+$automatic_billing_extended = $this->getAutomaticBillingExtendedLibrary();
+$billing_method = $autoamtic_billing_extended->getBillingMethod($blesta_customer_id);
+
+// This is their gateway token
+$billing_method->gateway_token;
+// This is their gateway customer id
+$billing_method->gateway_customer_id;
+```
+
 ### Adding a new customer's information ###
 ```
 $automatic_billing_extended = $this->getAutomaticBillingExtendedLibrary();
