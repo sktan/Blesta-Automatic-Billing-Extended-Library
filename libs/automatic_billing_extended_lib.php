@@ -171,6 +171,9 @@ class AutomaticBillingExtendedLibrary {
 		}
 	}
 	
+	/**
+	 * Removes all billing methods related to the gateway (should be called when uninstalling a gateway)
+	 */
 	public function removeAllBillingMethods() {
 		$this->Record->from($this->database_name)->
 			where('gateway_name', '=', $this->gateway_identifier)->
